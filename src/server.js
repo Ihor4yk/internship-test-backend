@@ -1,32 +1,30 @@
 import express from "express";
+import "dotenv/config";
 import cors from "cors";
-import pool from "./config/db.js";
-import applicationRoutes from "./routes/applications.js";
+
+import { connectPostgreSQL } from "./db/connectPostgreSQL.js";
+import authRoutes from "./routes/authRoutes.js";
+import applicationRoutes from "./routes/applicationRoutes.js";
+
+import { notFoundHandler } from "./middleware/notFoundHandler.js";
+import { errorHandler } from "./middleware/errorHandler.js";
+import { errors } from "celebrate";
 
 const app = express();
-app.use(cors());
+const PORT = process.env.PORT ?? 5000;
+
 app.use(express.json());
+app.use(cors());
 
-app.use("/api/applications", applicationRoutes);
+app.use(authRoutes);
+app.use(applicationRoutes);
 
-app.get("/", (req, res) => {
-  res.send("API is running");
+app.use(errors());
+app.use(notFoundHandler);
+app.use(errorHandler);
+
+await connectPostgreSQL();
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
-const PORT = process.env.PORT || 5000;
-
-async function startServer() {
-  try {
-    await pool.query("SELECT 1");
-    console.log("✅ Connected to PostgreSQL");
-
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  } catch (err) {
-    console.error("❌ PostgreSQL connection error:", err);
-    process.exit(1);
-  }
-}
-
-startServer();

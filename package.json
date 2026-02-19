@@ -21,13 +21,21 @@
   "homepage": "https://github.com/Ihor4yk/internship-test-backend#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "celebrate": "^15.0.3",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "http-errors": "^2.0.1",
+    "joi": "^18.0.2",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.18.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.3.0",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.8.1"
   }
 }
