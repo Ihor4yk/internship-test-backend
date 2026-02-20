@@ -8,3 +8,14 @@ export const getApplications = asyncHandler(async (req, res) => {
 
   res.json(result.rows);
 });
+
+export const createApplication = asyncHandler(async (req, res) => {
+  const { name, email, message } = req.body;
+
+  const result = await pool.query(
+    "INSERT INTO applications (name, email, message) VALUES ($1, $2, $3) RETURNING *",
+    [name, email, message],
+  );
+
+  res.status(201).json(result.rows[0]);
+});

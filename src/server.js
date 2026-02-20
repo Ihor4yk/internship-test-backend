@@ -19,6 +19,10 @@ app.use(cors());
 app.use(authRoutes);
 app.use(applicationRoutes);
 
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+
 app.use(errors());
 app.use(notFoundHandler);
 app.use(errorHandler);
