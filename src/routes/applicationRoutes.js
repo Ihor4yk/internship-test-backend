@@ -1,18 +1,9 @@
 import { Router } from "express";
-import { celebrate } from "celebrate";
-import { createApplicationSchema } from "../validations/applicationValidation.js";
-import {
-  createApplication,
-  getApplications,
-} from "../controllers/applicationController.js";
+import { getApplications } from "../controllers/applicationController.js";
+import { authenticate } from "../middleware/authenticate.js";
 
 const router = Router();
 
-router.post(
-  "/applications",
-  celebrate(createApplicationSchema),
-  createApplication,
-);
-router.get("/applications", getApplications);
+router.get("/applications", authenticate, getApplications);
 
 export default router;
