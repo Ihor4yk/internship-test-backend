@@ -10,6 +10,7 @@ import { notFoundHandler } from "./middleware/notFoundHandler.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { errors } from "celebrate";
 import healthRoutes from "./routes/healthRoutes.js";
+import rootRoutes from "./routes/rootRoutes.js";
 
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger.js";
@@ -19,6 +20,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
+
+app.use(rootRoutes);
 
 app.use(authRoutes);
 app.use(applicationRoutes);
