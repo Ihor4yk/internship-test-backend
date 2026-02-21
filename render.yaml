@@ -5,6 +5,7 @@ services:
     plan: free
     buildCommand: npm install
     startCommand: npm start
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
@@ -17,9 +18,3 @@ services:
       - key: JWT_EXPIRES_IN
         value: 7d
 
-databases:
-  - name: internship-test-db
-    databaseName: internship_test
-    user: postgres
-    region: ohio
-    plan: free
