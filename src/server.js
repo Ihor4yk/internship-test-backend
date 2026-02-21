@@ -11,7 +11,6 @@ import { errorHandler } from "./middleware/errorHandler.js";
 import { errors } from "celebrate";
 import healthRoutes from "./routes/healthRoutes.js";
 
-
 import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger.js";
 
@@ -38,7 +37,6 @@ const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-// Graceful shutdown for Render
 process.on("SIGTERM", () => {
   console.log("SIGTERM signal received: closing HTTP server");
   server.close(() => {

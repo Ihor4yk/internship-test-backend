@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: internship-test-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: internship-test-db
+          property: connectionString
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+
+databases:
+  - name: internship-test-db
+    databaseName: internship_test
+    user: postgres
+    region: ohio
+    plan: free
