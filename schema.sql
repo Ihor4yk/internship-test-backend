@@ -19,13 +19,6 @@ CREATE TABLE IF NOT EXISTS applications (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- INDEXES (performance)
-CREATE INDEX IF NOT EXISTS idx_users_email
-ON users(email);
-
-CREATE INDEX IF NOT EXISTS idx_applications_created_at
-ON applications(created_at DESC);
-
 -- DEALS TABLE
 CREATE TABLE IF NOT EXISTS deals (
     id SERIAL PRIMARY KEY,
@@ -39,6 +32,13 @@ CREATE TABLE IF NOT EXISTS deals (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- INDEX FOR SORTING
+-- INDEXES (performance)
+CREATE INDEX IF NOT EXISTS idx_users_email
+ON users(email);
+
+CREATE INDEX IF NOT EXISTS idx_applications_created_at
+ON applications(created_at DESC);
+
+
 CREATE INDEX IF NOT EXISTS idx_deals_created_at
 ON deals(created_at DESC);
