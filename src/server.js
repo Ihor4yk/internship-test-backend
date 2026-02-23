@@ -5,6 +5,7 @@ import cors from "cors";
 import { connectPostgreSQL } from "./db/connectPostgreSQL.js";
 import authRoutes from "./routes/authRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
+import dealRoutes from "./routes/dealRoutes.js";
 
 import { notFoundHandler } from "./middleware/notFoundHandler.js";
 import { errorHandler } from "./middleware/errorHandler.js";
@@ -25,6 +26,7 @@ app.use(rootRoutes);
 
 app.use(authRoutes);
 app.use(applicationRoutes);
+app.use(dealRoutes);
 
 app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

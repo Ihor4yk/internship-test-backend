@@ -24,3 +24,20 @@ ON users(email);
 
 CREATE INDEX IF NOT EXISTS idx_applications_created_at
 ON applications(created_at DESC);
+
+-- DEALS TABLE
+CREATE TABLE IF NOT EXISTS deals (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    price NUMERIC(12,2) NOT NULL,
+    ticket NUMERIC(12,2) NOT NULL,
+    yield_percent NUMERIC(5,2) NOT NULL,
+    days_left INTEGER NOT NULL,
+    sold_percent INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- INDEX FOR SORTING
+CREATE INDEX IF NOT EXISTS idx_deals_created_at
+ON deals(created_at DESC);
