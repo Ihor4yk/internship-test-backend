@@ -11,6 +11,7 @@ const options = {
 
     tags: [
       { name: "Auth", description: "Authentication endpoints" },
+      { name: "Deals", description: "Real estate deals API" },
       { name: "Applications", description: "User applications API" },
     ],
 

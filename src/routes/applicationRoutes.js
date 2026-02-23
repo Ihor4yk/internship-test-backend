@@ -6,11 +6,13 @@ import {
 } from "../controllers/applicationController.js";
 import { authenticate } from "../middleware/authenticate.js";
 import { celebrate } from "celebrate";
+import { upload } from "../middleware/uploadMiddleware.js";
 
 const router = Router();
 
 router.post(
   "/applications",
+  upload.single("image"),
   celebrate(createApplicationSchema),
   createApplication,
 );
