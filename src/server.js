@@ -22,13 +22,13 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
-app.use("/api", rootRoutes);
+app.use("/", rootRoutes);
+
 app.use("/api", authRoutes);
 app.use("/api", applicationRoutes);
 app.use("/api", dealRoutes);
 
 app.use("/api/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
 app.use("/api", healthRoutes);
 
 app.use(errors());
