@@ -15,7 +15,12 @@ const options = {
       { name: "Applications", description: "User applications API" },
     ],
 
-    servers: [{ url: "http://localhost:5000" }],
+    servers: [
+      {
+        url: `${process.env.BASE_URL || `http://localhost:${process.env.PORT || 5000}`}/api`,
+        description: "Current server",
+      },
+    ],
 
     components: {
       securitySchemes: {
