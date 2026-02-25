@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { createApplicationSchema } from "../validations/applicationValidation.js";
+import {
+  createApplicationSchema,
+  getApplicationsSchema,
+} from "../validations/applicationValidation.js";
 import {
   createApplication,
   getApplications,
@@ -17,6 +20,11 @@ router.post(
   createApplication,
 );
 
-router.get("/applications", authenticate, getApplications);
+router.get(
+  "/applications",
+  authenticate,
+  celebrate(getApplicationsSchema),
+  getApplications,
+);
 
 export default router;

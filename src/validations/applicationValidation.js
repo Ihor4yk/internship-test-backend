@@ -7,3 +7,7 @@ export const createApplicationSchema = {
     message: Joi.string().min(1).required(),
   }),
 };
+
+export const getApplicationsSchema = {
+  [Segments.QUERY]: Joi.object({}).unknown(false),
+};
