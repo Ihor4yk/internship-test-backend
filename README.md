@@ -4,6 +4,13 @@ REST API built with **Node.js + Express** and **PostgreSQL**, created as part of
 
 ---
 
+## 🔗 Related
+
+- **Backend repository:** https://github.com/Ihor4yk/internship-test-backend
+- **Live demo:** https://internship-test-backend-cou0.onrender.com
+
+---
+
 ## 🛠 Tech Stack
 
 | Layer | Technology |
@@ -273,10 +280,3 @@ The API can be deployed to any Node.js-compatible platform (Railway, Render, Her
 2. Provision a PostgreSQL database and set `DATABASE_URL`.
 3. Run `schema.sql` against the production database once on first deploy.
 4. Set `NODE_ENV=production`.
-
----
-
-## 🔗 Related
-
-- **Frontend repository:** _add link here_
-- **Live demo:** _add link here_
